@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Faces</title>
+  <title>Faces Solen</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Sans:wght@300;400&display=swap');
 
@@ -316,7 +316,7 @@
 <!-- PAGE: SUBMIT -->
 <div class="page active" id="page-submit">
   <header>
-    <span class="logo">Faces</span>
+    <span class="logo">Faces Solen</span>
     <button class="nav-link" onclick="showPage('page-token')">У меня есть токен</button>
   </header>
 
@@ -324,14 +324,14 @@
     <div class="container">
       <h1>Я дарю своё лицо<br>тем, кто вынужден<br><em>прятать своё.</em></h1>
       <p class="subtitle">
-        На месяц я отдаю свой пакет активистам, журналистам и людям в тени.<br>
-        Напишите текст который будете произносить моим голосом — и получите токен.<br>
-        После проверки вы получите доступ к пакету анонимно.
+        На месяц я отдаю свой пакет активистам, журналистам и людям которые хотят рассказать личное анонимно.<br>
+        Напишите текст который будете произносить моим голосом и получите токен и сохраните его.<br>
+        После проверки вы получите доступ к пакету анонимно. 
       </p>
 
       <div class="field">
         <label>Текст для озвучки</label>
-        <textarea id="text-input" placeholder="Напишите текст который вы планируете произносить моим голосом и лицом. Это нужно не для контроля — для защиты."></textarea>
+        <textarea id="text-input" placeholder="Напишите текст который вы планируете произносить моим голосом и лицом. Это нужно только для моеё защиты от создания неприемлимого контента либо враждебных высказываний."></textarea>
       </div>
 
       <button class="btn" id="submit-btn" onclick="submitRequest()">Отправить</button>
@@ -341,7 +341,7 @@
         <div class="token-label">Ваш токен</div>
         <div class="token-value" id="token-display"></div>
         <div class="token-note">
-          Сохраните токен — он не будет показан повторно.<br>
+          Сохраните токен! он не будет показан повторно.<br>
           Когда заявка будет одобрена, введите его на странице получения.
         </div>
       </div>
@@ -350,13 +350,13 @@
     </div>
   </main>
 
-  <footer>Faces — цифровой щит</footer>
+  <footer>Faces Solen. цифровой щит</footer>
 </div>
 
 <!-- PAGE: TOKEN CHECK -->
 <div class="page" id="page-token">
   <header>
-    <span class="logo">Faces</span>
+    <span class="logo">Faces Solen</span>
     <button class="nav-link" onclick="showPage('page-submit')">Отправить текст</button>
   </header>
 
@@ -385,7 +385,7 @@
     </div>
   </main>
 
-  <footer>Faces — цифровой щит</footer>
+  <footer>Faces Solen. цифровой щит</footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -487,7 +487,7 @@
 
     if (data.status === 'pending') {
       tag.textContent = 'На рассмотрении';
-      text.textContent = 'Заявка получена. Проверьте позже — обычно это занимает до 24 часов.';
+      text.textContent = 'Заявка получена. Проверьте позже, обычно это занимает до 24 часов.';
     } else if (data.status === 'approved') {
       tag.textContent = 'Одобрено';
       text.textContent = 'Ваша заявка одобрена. Пакет доступен по ссылке ниже.';
