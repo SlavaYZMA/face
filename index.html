@@ -15,235 +15,107 @@
       --muted: #666666;
       --accent: #c0392b;
       --accent-dim: #7a1f17;
+      --green: #27ae60;
       --mono: 'IBM Plex Mono', monospace;
       --sans: 'IBM Plex Sans', sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-weight: 300;
-      min-height: 100vh;
-    }
+    html, body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; min-height: 100vh; }
 
     .page { display: none; min-height: 100vh; flex-direction: column; }
     .page.active { display: flex; }
 
-    header {
-      padding: 2rem 2.5rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
-    }
-
-    .logo {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .nav-link {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      text-decoration: none;
-      text-transform: uppercase;
-      cursor: pointer;
-      background: none;
-      border: none;
-      transition: color 0.2s;
-    }
+    header { padding: 2rem 2.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 1.5rem; }
+    .logo { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+    .nav-link { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; text-transform: uppercase; cursor: pointer; background: none; border: none; transition: color 0.2s; }
     .nav-link:hover { color: var(--text); }
 
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 2rem;
-    }
-
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
     .container { width: 100%; max-width: 560px; }
 
-    h1 {
-      font-family: var(--mono);
-      font-size: clamp(1.4rem, 3vw, 1.8rem);
-      font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: 0.75rem;
-    }
+    h1 { font-family: var(--mono); font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 400; line-height: 1.3; margin-bottom: 0.75rem; }
     h1 em { font-style: italic; color: var(--accent); }
 
-    .subtitle {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
+    .subtitle { font-size: 0.875rem; color: var(--muted); line-height: 1.6; margin-bottom: 2.5rem; font-weight: 300; }
 
     .field { margin-bottom: 1.25rem; }
+    label { display: block; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
 
-    label {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-
-    textarea {
-      width: 100%;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      font-weight: 300;
-      line-height: 1.6;
-      padding: 1rem;
-      resize: vertical;
-      min-height: 180px;
-      outline: none;
-      transition: border-color 0.2s;
-      border-radius: 0;
-      -webkit-appearance: none;
-    }
+    textarea { width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-family: var(--sans); font-size: 0.9rem; font-weight: 300; line-height: 1.6; padding: 1rem; resize: vertical; min-height: 180px; outline: none; transition: border-color 0.2s; border-radius: 0; -webkit-appearance: none; }
     textarea:focus { border-color: var(--accent-dim); }
     textarea::placeholder { color: var(--muted); }
 
-    input[type="text"] {
-      width: 100%;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      padding: 0.875rem 1rem;
-      outline: none;
-      transition: border-color 0.2s;
-      border-radius: 0;
-      -webkit-appearance: none;
-    }
+    input[type="text"] { width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-family: var(--mono); font-size: 1rem; letter-spacing: 0.08em; padding: 0.875rem 1rem; outline: none; transition: border-color 0.2s; border-radius: 0; -webkit-appearance: none; }
     input[type="text"]:focus { border-color: var(--accent-dim); }
     input[type="text"]::placeholder { color: var(--muted); letter-spacing: 0.04em; }
 
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 0.9rem 1rem;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 1.5rem;
-    }
+    .btn { display: block; width: 100%; padding: 0.9rem 1rem; background: var(--accent); color: #fff; border: none; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-top: 1.5rem; }
     .btn:hover { background: #a93226; }
     .btn:disabled { background: var(--accent-dim); cursor: not-allowed; }
 
-    .token-box {
-      display: none;
-      background: var(--surface);
-      border: 1px solid var(--accent-dim);
-      padding: 1.5rem;
-      margin-top: 1.5rem;
-    }
+    .token-box { display: none; background: var(--surface); border: 1px solid var(--accent-dim); padding: 1.5rem; margin-top: 1.5rem; }
     .token-box.visible { display: block; }
-
-    .token-label {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .token-value {
-      font-family: var(--mono);
-      font-size: 1.4rem;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
+    .token-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+    .token-value { font-family: var(--mono); font-size: 1.4rem; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
     .token-note { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
 
-    .status-box {
-      display: none;
-      padding: 1.25rem 1.5rem;
-      margin-top: 1.5rem;
-      border: 1px solid var(--border);
-    }
+    .status-box { display: none; padding: 1.25rem 1.5rem; margin-top: 1.5rem; border: 1px solid var(--border); }
     .status-box.visible { display: block; }
     .status-box.pending { border-color: var(--border); }
-    .status-box.approved { border-color: #27ae60; }
+    .status-box.approved { border-color: var(--green); }
     .status-box.rejected { border-color: var(--accent-dim); }
-
-    .status-tag {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
+    .status-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
     .status-tag.pending { color: var(--muted); }
-    .status-tag.approved { color: #27ae60; }
+    .status-tag.approved { color: var(--green); }
     .status-tag.rejected { color: var(--accent); }
-
     .status-text { font-size: 0.875rem; color: var(--text); line-height: 1.5; }
 
-    .download-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.7rem 1.25rem;
-      background: #27ae60;
-      color: #fff;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
+    .download-btn { display: inline-block; margin-top: 1rem; padding: 0.7rem 1.25rem; background: var(--green); color: #fff; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
     .download-btn:hover { background: #219a52; }
 
-    .error {
-      display: none;
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      margin-top: 0.75rem;
-      letter-spacing: 0.05em;
-    }
+    .error { display: none; font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-top: 0.75rem; letter-spacing: 0.05em; }
     .error.visible { display: block; }
 
-    .note { font-size: 0.75rem; color: var(--muted); line-height: 1.5; margin-top: 1rem; }
+    /* Security notice */
+    .security-notice {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid #2a2a2a;
+      border-left: 2px solid var(--accent-dim);
+    }
+    .security-notice p {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .security-notice strong { color: #888; font-weight: 500; }
+    .security-notice a { color: var(--accent-dim); text-decoration: none; }
+    .security-notice a:hover { color: var(--accent); }
 
-    footer {
-      padding: 1.5rem 2.5rem;
-      border-top: 1px solid var(--border);
+    /* Encryption indicator */
+    .enc-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
       font-family: var(--mono);
       font-size: 0.6rem;
       letter-spacing: 0.1em;
-      color: var(--muted);
       text-transform: uppercase;
+      color: var(--muted);
     }
+    .enc-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      transition: background 0.3s;
+    }
+    .enc-dot.ready { background: var(--green); }
+
+    footer { padding: 1.5rem 2.5rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
 
     @media (max-width: 600px) {
       header { padding: 1.5rem; }
@@ -265,16 +137,20 @@
       <h1>Я дарю своё лицо<br>тем, кто вынужден<br><em>прятать своё.</em></h1>
       <p class="subtitle">
         На месяц я отдаю свой пакет активистам, журналистам и людям которые хотят рассказать личное анонимно.<br>
-        Напишите текст который будете произносить моим голосом и получите токен и сохраните его.<br>
+        Напишите текст — он зашифруется прямо в вашем браузере до отправки. Сохраните токен.<br>
         После проверки вы получите доступ к пакету анонимно.
       </p>
 
       <div class="field">
         <label>Текст для озвучки</label>
-        <textarea id="text-input" placeholder="Напишите текст который вы планируете произносить моим голосом и лицом. Это нужно только для моей защиты от создания неприемлемого контента либо враждебных высказываний."></textarea>
+        <textarea id="text-input" placeholder="Напишите текст который вы планируете произносить моим голосом и лицом. Текст шифруется в вашем браузере — сервер получает только зашифрованные данные."></textarea>
+        <div class="enc-status">
+          <div class="enc-dot" id="enc-dot"></div>
+          <span id="enc-label">загрузка шифрования...</span>
+        </div>
       </div>
 
-      <button class="btn" id="submit-btn" onclick="submitRequest()">Отправить</button>
+      <button class="btn" id="submit-btn" onclick="submitRequest()">Зашифровать и отправить</button>
       <div class="error" id="submit-error"></div>
 
       <div class="token-box" id="token-result">
@@ -286,10 +162,15 @@
         </div>
       </div>
 
-      <p class="note">Личные данные не собираются. Форма анонимна.</p>
+      <div class="security-notice">
+        <p>
+          <strong>Шифрование:</strong> текст шифруется PGP в вашем браузере до отправки. Сервер и база данных видят только зашифрованный блок — содержание недоступно никому кроме автора проекта.<br><br>
+          <strong>IP-адрес:</strong> сайт не собирает IP намеренно, но интернет-провайдер видит факт подключения к этому сайту. Для полной анонимности используйте <a href="https://www.torproject.org/" target="_blank">Tor Browser</a>.
+        </p>
+      </div>
     </div>
   </main>
-  <footer>Faces Solen · цифровой щит</footer>
+  <footer>Faces Solen · цифровой щит · текст шифруется на вашем устройстве</footer>
 </div>
 
 <!-- PAGE: TOKEN CHECK -->
@@ -323,127 +204,193 @@
   <footer>Faces Solen · цифровой щит</footer>
 </div>
 
+<!-- OpenPGP.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openpgp/5.11.2/openpgp.min.js"></script>
 <script>
-  // ─── навигация ───────────────────────────────────────────
-  function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.getElementById('token-result').classList.remove('visible');
-    document.getElementById('submit-error').classList.remove('visible');
-    document.getElementById('status-result').classList.remove('visible');
-    document.getElementById('token-error').classList.remove('visible');
-    document.getElementById('text-input').value = '';
-    document.getElementById('token-input').value = '';
+// ─── Публичный ключ для шифрования ───────────────────────
+const PUBLIC_KEY_ARMOR = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+xsFNBGp3BmIBEACzi573LNg5swIwd0SidBERvUYcHvQa0R7t9Jriz9ZcwkVsZVXs
+VQVSDr01j42Yfo01hNZGHK/0wNvNyBKzgHI3Zs0/APOIHt980JWXByX6BE4gCg/K
+63h91jHfHi1X57d1Zu3H5QgYIlasr6p1ZBREeG+F+vzZqxiCh0c5R2N7BS7jiwTN
+w4fT9ZXMFiHhE3zZjXtwWgw+Jg5czie2HhcQubkmN3JfexKhlYYFawOTzg3IUPdH
+ZbBapUQ4Jv+mpQwzt616Q1fWFUvlyU879x7Q0P2DTs5ChZ/ZNedqKI9TqpRBEmLs
+a4vLg2D1ES9O9fV6NOB/zh8W7AgjbyXm6FXysEvMRHS262cqIxnDDVUPPOvHi+Sx
+NZ70+X0e6r3piWHiECjSABXd+LhJ3y+gJ1pwINVBdcDgphhDU46NqufWodm1XQQI
+QxTBLHsrTv9/xWVddogRiy6AnDAl9FFX31sB5vEZ8w7igtHcUnVhESQUW7cWVw2O
+W66Kgmrm4pxO2UipV459AZdhhr2pJmgwt4QFcD2flqoqr8DjLtdHhJ2L0V/0T0wL
+dVG9MJ0jWKVvda4AfcdRtoThtpMhsjidMfqYI9Bjt3M/WwQ7CdhfUBeoUIsjrB5p
+LKePOowATmMdIxTOEo4gYL3Fstanknn+9GNdZxxCMieNrdt0tZrsZOPUNwARAQAB
+zR1GYWNlcyBTb2xlbiA8ZmFjZXNAc29sZW4uYXJ0PsLBggQTAQgALAUCancGYgIb
+DgILCQIVCAIWAgIeARYhBCu8qS1rQ5MXdlx/uzRm42UMixGlAAoJEDRm42UMixGl
+hF8P+QEYKRTR+9OMCzcKPPyklTMKgXWTk3aLazDD9wn3Lmg6Qj9Wyhc+jHpn+F/r
+EYh0ssHfK6EA0gdW+gtXs0UkSE+Esd3PpEyOjmlIiqShqCiiYggnxtRg2iNzt3jN
+GJjShEFUwAV+cQGo1QKHyrUAyVOVtQurh7vMlN5lQpwBbvteAl7D4YeZ2fOBd89D
+5nm/OoSr2xSygfN8+xO0Bd3joX+IQWqfBczzbVgC6jLBFsYwIiMtRp07vOuT9SiB
+GQ5gXN6O0ILfkM9qVJC7TId90bk0D3dhl+8q/8ZDUeshKl/bB+dSDYC0NTt0a7Kr
+FD2dTpF4YhGotroA5QijbdlMNvfRnSamHt3x4kFfUeQQiangzF0MgCL1Lt8ht/Qp
+OLO/3FRh5iLLOfL0WnWnMv36zTCu7mJ6/4FDxfJYtY6lMI3y1Y8cPLbU1y+6jFN5
+4xHVkW8u3psa3CucIfztOYcdMWEErxaTnB6Saa+zGq2OhWxivpON3lgLH8xnuEg8
+/j+4KZS3ut40u9q/jDNesEDr7sCT/H0uZ3Hus8amlUOrmKjU/DAf9gkCBslV+XXa
+YGRbwtW4okSHh+LSYNHENle/xMWZoSAFG+hN+N1DIBXmp/t/h47gIl+a8p6EgYEx
+ggFWrwrZ2cEkIGedTaPGqaSajOt9jFit3rZ5TL9dhkgy0JQL
+=A3X4
+-----END PGP PUBLIC KEY BLOCK-----`;
+
+// ─── Инициализация PGP ───────────────────────────────────
+let pgpPublicKey = null;
+
+async function initPGP() {
+  try {
+    pgpPublicKey = await openpgp.readKey({ armoredKey: PUBLIC_KEY_ARMOR });
+    document.getElementById('enc-dot').classList.add('ready');
+    document.getElementById('enc-label').textContent = 'PGP готов · шифрование в браузере';
+  } catch (e) {
+    document.getElementById('enc-label').textContent = 'ошибка загрузки шифрования';
+    console.error('PGP init error:', e);
+  }
+}
+
+async function encryptText(plaintext) {
+  const encrypted = await openpgp.encrypt({
+    message: await openpgp.createMessage({ text: plaintext }),
+    encryptionKeys: pgpPublicKey,
+  });
+  return encrypted; // возвращает ASCII-armored строку
+}
+
+// ─── Навигация ───────────────────────────────────────────
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('token-result').classList.remove('visible');
+  document.getElementById('submit-error').classList.remove('visible');
+  document.getElementById('status-result').classList.remove('visible');
+  document.getElementById('token-error').classList.remove('visible');
+  document.getElementById('text-input').value = '';
+  document.getElementById('token-input').value = '';
+}
+
+// ─── Отправка ────────────────────────────────────────────
+async function submitRequest() {
+  const text = document.getElementById('text-input').value.trim();
+  const btn  = document.getElementById('submit-btn');
+  const err  = document.getElementById('submit-error');
+
+  err.classList.remove('visible');
+
+  if (text.length < 20) {
+    err.textContent = 'Текст слишком короткий.';
+    err.classList.add('visible');
+    return;
   }
 
-  // ─── отправка текста ─────────────────────────────────────
-  async function submitRequest() {
-    const text = document.getElementById('text-input').value.trim();
-    const btn  = document.getElementById('submit-btn');
-    const err  = document.getElementById('submit-error');
+  if (!pgpPublicKey) {
+    err.textContent = 'Шифрование ещё загружается. Подождите секунду.';
+    err.classList.add('visible');
+    return;
+  }
 
-    err.classList.remove('visible');
+  btn.disabled = true;
+  btn.textContent = 'Шифрование...';
 
-    if (text.length < 20) {
-      err.textContent = 'Текст слишком короткий.';
-      err.classList.add('visible');
-      return;
-    }
+  try {
+    // Шифруем в браузере — на сервер летит только зашифрованный блок
+    const encrypted = await encryptText(text);
 
-    btn.disabled = true;
     btn.textContent = 'Отправка...';
 
-    try {
-      const res  = await fetch('/api/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text_content: text })
-      });
-      const data = await res.json();
+    const res  = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text_content: encrypted })
+    });
+    const data = await res.json();
 
-      if (!res.ok || !data.token) throw new Error(data.error || 'unknown');
+    if (!res.ok || !data.token) throw new Error(data.error || 'unknown');
 
-      document.getElementById('token-display').textContent = data.token;
-      document.getElementById('token-result').classList.add('visible');
-      btn.textContent = 'Отправлено';
+    document.getElementById('token-display').textContent = data.token;
+    document.getElementById('token-result').classList.add('visible');
+    btn.textContent = 'Отправлено';
 
-    } catch (e) {
-      err.textContent = 'Ошибка при отправке. Попробуйте ещё раз.';
-      err.classList.add('visible');
-      btn.disabled = false;
-      btn.textContent = 'Отправить';
-    }
+  } catch (e) {
+    err.textContent = 'Ошибка при отправке. Попробуйте ещё раз.';
+    err.classList.add('visible');
+    btn.disabled = false;
+    btn.textContent = 'Зашифровать и отправить';
+  }
+}
+
+// ─── Проверка токена ─────────────────────────────────────
+async function checkToken() {
+  const token = document.getElementById('token-input').value.trim();
+  const btn   = document.getElementById('check-btn');
+  const err   = document.getElementById('token-error');
+  const box   = document.getElementById('status-result');
+
+  err.classList.remove('visible');
+  box.classList.remove('visible');
+
+  if (token.length < 8) {
+    err.textContent = 'Введите токен.';
+    err.classList.add('visible');
+    return;
   }
 
-  // ─── проверка токена ─────────────────────────────────────
-  async function checkToken() {
-    const token = document.getElementById('token-input').value.trim();
-    const btn   = document.getElementById('check-btn');
-    const err   = document.getElementById('token-error');
-    const box   = document.getElementById('status-result');
+  btn.disabled = true;
+  btn.textContent = 'Проверка...';
 
-    err.classList.remove('visible');
-    box.classList.remove('visible');
+  try {
+    const res  = await fetch('/api/check-token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token })
+    });
+    const data = await res.json();
 
-    if (token.length < 8) {
-      err.textContent = 'Введите токен.';
+    btn.disabled = false;
+    btn.textContent = 'Проверить';
+
+    if (res.status === 404) {
+      err.textContent = 'Токен не найден.';
       err.classList.add('visible');
       return;
     }
+    if (!res.ok) throw new Error(data.error || 'unknown');
 
-    btn.disabled = true;
-    btn.textContent = 'Проверка...';
+    const tag  = document.getElementById('status-tag');
+    const txt  = document.getElementById('status-text');
+    const link = document.getElementById('download-link');
 
-    try {
-      const res  = await fetch('/api/check-token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token })
-      });
-      const data = await res.json();
+    box.className = 'status-box visible ' + data.status;
+    tag.className = 'status-tag ' + data.status;
+    link.style.display = 'none';
 
-      btn.disabled = false;
-      btn.textContent = 'Проверить';
-
-      if (res.status === 404) {
-        err.textContent = 'Токен не найден.';
-        err.classList.add('visible');
-        return;
-      }
-      if (!res.ok) throw new Error(data.error || 'unknown');
-
-      const tag  = document.getElementById('status-tag');
-      const text = document.getElementById('status-text');
-      const link = document.getElementById('download-link');
-
-      box.className = 'status-box visible ' + data.status;
-      tag.className = 'status-tag ' + data.status;
-      link.style.display = 'none';
-
-      if (data.status === 'pending') {
-        tag.textContent  = 'На рассмотрении';
-        text.textContent = 'Заявка получена. Проверьте позже — обычно это занимает до 24 часов.';
-
-      } else if (data.status === 'approved') {
-        tag.textContent  = 'Одобрено';
-        text.textContent = 'Ваша заявка одобрена. Пакет доступен по ссылке ниже.';
-        link.href = data.url;   // URL приходит с сервера, в коде страницы его нет
-        link.style.display = 'inline-block';
-
-      } else if (data.status === 'rejected') {
-        tag.textContent  = 'Отклонено';
-        text.textContent = 'Заявка отклонена.';
-      }
-
-      box.classList.add('visible');
-
-    } catch (e) {
-      btn.disabled = false;
-      btn.textContent = 'Проверить';
-      err.textContent = 'Ошибка соединения. Попробуйте ещё раз.';
-      err.classList.add('visible');
+    if (data.status === 'pending') {
+      tag.textContent = 'На рассмотрении';
+      txt.textContent = 'Заявка получена. Проверьте позже — обычно это занимает до 24 часов.';
+    } else if (data.status === 'approved') {
+      tag.textContent = 'Одобрено';
+      txt.textContent = 'Ваша заявка одобрена. Пакет доступен по ссылке ниже.';
+      link.href = data.url;
+      link.style.display = 'inline-block';
+    } else if (data.status === 'rejected') {
+      tag.textContent = 'Отклонено';
+      txt.textContent = 'Заявка отклонена.';
     }
+
+    box.classList.add('visible');
+
+  } catch (e) {
+    btn.disabled = false;
+    btn.textContent = 'Проверить';
+    err.textContent = 'Ошибка соединения. Попробуйте ещё раз.';
+    err.classList.add('visible');
   }
+}
+
+// ─── Старт ───────────────────────────────────────────────
+initPGP();
 </script>
 </body>
 </html>
